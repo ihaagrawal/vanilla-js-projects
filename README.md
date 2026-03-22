@@ -103,8 +103,6 @@ A central homepage is included to navigate between all projects.
 
 **Iha Agrawal**
 
-* LinkedIn: https://linkedin.com/in/ihaagrawal
-
 ---
 
 ## ⭐ Why This Repo Matters
