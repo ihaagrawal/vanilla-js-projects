@@ -1,0 +1,26 @@
+h1{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.userInput{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+input{
+    width: 150px;
+}
+
+#content {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+div button{
+    margin-top: 30px;
+    width: 200px;
+}

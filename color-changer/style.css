@@ -1,0 +1,32 @@
+h1 {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+.container{
+    display: flex;
+    gap: 10px;
+}
+
+.containerElement{
+    border: 2px solid black;
+    width: 200px;
+    height: 100px;
+    font-size: 0;
+}
+
+.red{
+    background-color: red;
+}
+
+.black{
+    background-color: black;
+}
+
+.green{
+    background-color: green;
+}
+
+.blue{
+    background-color: blue;
+}
