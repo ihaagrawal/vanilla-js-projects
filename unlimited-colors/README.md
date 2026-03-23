@@ -10,6 +10,7 @@ A simple and interactive web project that changes the background color of the pa
 * ⏱ Changes background color every 1 second
 * ▶️ Start button to begin color changes
 * ⏹ Stop button to stop and reset background
+* 🛡️ Prevents multiple intervals from running simultaneously
 * 🧠 Built using basic HTML, CSS, and JavaScript
 
 ---
@@ -24,7 +25,7 @@ A simple and interactive web project that changes the background color of the pa
 
 ## 📂 Project Structure
 
-```
+```bash
 Unlimited-Colors/
 │── index.html
 │── style.css
@@ -37,8 +38,9 @@ Unlimited-Colors/
 
 1. Click the **Start** button
 2. Background color changes every second
-3. Click the **Stop** button
-4. Background resets to white
+3. Multiple clicks on **Start** will NOT create extra intervals
+4. Click the **Stop** button
+5. Background resets to white
 
 ---
 
@@ -46,16 +48,30 @@ Unlimited-Colors/
 
 * Uses `setInterval()` to repeatedly change colors
 * Uses `clearInterval()` to stop execution
-* Generates random RGB values between `0 - 255`
+* Maintains a shared interval reference to control execution safely
+* Prevents multiple intervals using a guard condition
 
 Example:
 
 ```javascript
-let r = Math.floor(Math.random() * 256);
-let g = Math.floor(Math.random() * 256);
-let b = Math.floor(Math.random() * 256);
+let changingColors = null;
 
-document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+function changeColors() {
+    if (changingColors !== null) return;
+
+    changingColors = setInterval(() => {
+        let r = Math.floor(Math.random() * 256);
+        let g = Math.floor(Math.random() * 256);
+        let b = Math.floor(Math.random() * 256);
+
+        document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    }, 1000);
+}
+
+function stopColors() {
+    clearInterval(changingColors);
+    changingColors = null;
+}
 ```
 
 ---
@@ -65,13 +81,6 @@ document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 1. Clone the repository or download files
 2. Open `index.html` in your browser
 3. Click **Start** to begin 🎉
-
----
-
-## ⚠️ Notes
-
-* Make sure you don’t click **Start** multiple times (can create multiple intervals)
-* This is handled in improved versions using interval checks
 
 ---
 

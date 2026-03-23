@@ -3,6 +3,7 @@ const stopbutton = document.getElementById("stop").addEventListener("click", sto
 let changingColors = null;
 
 function changeColors(event) {
+    if(changingColors) return;
     changingColors = setInterval(() => {
         let r = Math.floor(Math.random() * 256);
         let g = Math.floor(Math.random() * 256);
